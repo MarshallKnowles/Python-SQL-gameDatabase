@@ -51,13 +51,13 @@ while(True):
             user_select = int(input("What would you like to do with the player table? \n 1. Add a new player \n 2. Remove a player \n 3. Modify a player in the table \n 4. Display the charactaristics of all players in the table"))
             match user_select:
                 case 1: 
-                    player.add( my_cursor )
+                    player.add( database, my_cursor )
                 case 2:
-                    player.delete( my_cursor )
+                    player.delete( database, my_cursor )
                 case 3:
-                    player.modify( my_cursor )
+                    player.modify( database,my_cursor )
                 case 4:
-                    player.display( my_cursor )
+                    player.display( database, my_cursor )
                 case _:
                     print("Invalid input")
         case 2: 

@@ -4,7 +4,7 @@
 import mysql.connector
 
 
-def add( my_cursor ):
+def add( database, my_cursor ):
     new_player_name = "GREGGORIUS the infinite" #Greggorius
     while ( len(new_player_name) >= 20):
         new_player_name = str(input("Enter the name of your player (must be 20 characters or less): "))
@@ -19,8 +19,8 @@ def add( my_cursor ):
 
     #adding the new player
     my_cursor.execute("INSERT INTO players (name, level) VALUES( '" + new_player_name + " '," + str(new_player_level) +");")
-
-def delete( my_cursor ):
+    database.commit()
+def delete( database, my_cursor ):
     target_player_id = "Shmlonkius the weakened"
     while (True):
         try:
@@ -29,9 +29,10 @@ def delete( my_cursor ):
         except:
             print("That is not a valid input try inputting an integer")
     my_cursor.execute("DELETE FROM players WHERE player_id= " + str(target_player_id) + ";")
+    database.commit
 
 
-def modify( my_cursor ):
+def modify( database, my_cursor ):
     #1st level checks for player existence
     while(True):
         #2nd level checks for valid integer input
@@ -73,6 +74,7 @@ def modify( my_cursor ):
                         print("That is not a valid input try inputing an integer")
 
                 my_cursor.execute("UPDATE players SET level = "+ str(new_player_level) + " WHERE player_id = " + str(player_id) +";")
+                database.commit()
                 break
 
             case _:
@@ -80,8 +82,9 @@ def modify( my_cursor ):
             
 
 
-def display( my_cursor ):
+def display( database, my_cursor ):
     my_cursor.execute("SELECT * FROM players;")
+    database.commit()
     print("player_id:           name:           level:")
     for ( player_id, name, level) in my_cursor:
         print( str(player_id) + "              " + name + "              " + str(level))
