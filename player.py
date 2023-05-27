@@ -19,8 +19,8 @@ def add( database, my_cursor ):
 
     #adding the new player
     my_cursor.execute("INSERT INTO players (name, level) VALUES( '" + new_player_name + " '," + str(new_player_level) +");")
-    database.commit
-    
+    database.commit()
+
 def delete( database, my_cursor ):
     target_player_id = "Shmlonkius the weakened"
     while (True):
@@ -30,7 +30,7 @@ def delete( database, my_cursor ):
         except:
             print("That is not a valid input try inputting an integer")
     my_cursor.execute("DELETE FROM players WHERE player_id= " + str(target_player_id) + ";")
-    database.commit
+    database.commit()
 
 
 def modify( database, my_cursor ):
@@ -64,7 +64,7 @@ def modify( database, my_cursor ):
                     new_player_name = str(input("Enter the new name of your player (must be 20 characters or less): "))
                 
                 my_cursor.execute("UPDATE players SET name = '"+ str(new_player_name) + "' WHERE player_id = " + str(player_id) +";")
-                database.commit
+                database.commit()
                 break
             case 2:
                 new_player_level = "literally infinite idk what to say" #GREGGORIUS
@@ -76,7 +76,7 @@ def modify( database, my_cursor ):
                         print("That is not a valid input try inputing an integer")
 
                 my_cursor.execute("UPDATE players SET level = "+ str(new_player_level) + " WHERE player_id = " + str(player_id) +";")
-                database.commit
+                database.commit()
                 break
 
             case _:
