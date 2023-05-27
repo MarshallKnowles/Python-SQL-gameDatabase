@@ -7,7 +7,6 @@ Database creates 3 tables players, items, and item_inst.
 Only the players table can be interracted with at the moment.
 
 TODO:
-Add response lines to all interractions so users can see what they just did
 Write Unit Tests for overall system
 Complete interractions with items and item_inst
 
@@ -20,3 +19,6 @@ Feature Ideas:
 
 Known Bugs: 
   NONE at the moment
+  
+ DONE:
+ Add response lines to all interractions so users can see what they just did
