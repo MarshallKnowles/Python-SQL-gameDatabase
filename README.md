@@ -9,3 +9,7 @@ Only the players table can be interracted with at the moment.
 TODO:
 Write Unit Tests for overall system
 Complete interractions with items and item_inst
+Fix the known Bugs
+
+Known Bugs:
+  1. SQL server does not save data from previous runnings of the server.
