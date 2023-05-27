@@ -16,10 +16,13 @@ while( not pass_setup ):
     username = input("Username: ")
     password = input("Password: ")
 
+    #Just setting the passwords automatically so I can test what I need to.
+    hostname = "localhost"
+    username = "user"
+    password = "userPass1!"
     #sets up the tables in a try-catch
     try:
         #This FAT block generates all the tables and we need it here so everybody else can see database and my_cursor 
-        #localhost, user, userPass!
         print("Hostname: " +hostname + ', Username: ' + username +', Password: ' + password )
         database = mysql.connector.connect(host= str(hostname),user = "user", passwd = "userPass1!")
         my_cursor = database.cursor()
@@ -39,16 +42,16 @@ while( not pass_setup ):
         print("There was an error please make sure the following are true: \n 1. You are entering the correct values for the server hostname, username, and password for your mySQL server. \n 2. Make sure that both Python and the mySQL python connector are installed. \n 3. Lastly please make sure that the mySQL connecter is within Pythons PATH variable.")
         print("Please try again:")
     else:
-        print("Database sucessfully created!")
+        print("Database sucessfully accessed!\n")
         pass_setup = True
 
 
 #CLI TIME
 while(True):
-    user_select = int(input("Which group would you like to interract with? \n 1. Players \n 2. Items \n 3. Item Instances"))
+    user_select = int(input("Which group would you like to interract with?\n \n   1. Players \n   2. Items \n   3. Item Instances\n"))
     match user_select:
         case 1:
-            user_select = int(input("What would you like to do with the player table? \n 1. Add a new player \n 2. Remove a player \n 3. Modify a player in the table \n 4. Display the charactaristics of all players in the table"))
+            user_select = int(input("\nWhat would you like to do with the player table? \n   1. Add a new player \n   2. Remove a player \n   3. Modify a player in the table \n   4. Display the charactaristics of all players in the table\n"))
             match user_select:
                 case 1: 
                     player.add( database, my_cursor )

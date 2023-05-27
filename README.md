@@ -7,9 +7,16 @@ Database creates 3 tables players, items, and item_inst.
 Only the players table can be interracted with at the moment.
 
 TODO:
+Add response lines to all interractions so users can see what they just did
 Write Unit Tests for overall system
 Complete interractions with items and item_inst
-Fix the known Bugs
 
-Known Bugs:
-  1. SQL server does not save data from previous runnings of the server.
+Feature Ideas:
+1. save and exit instead of always comitting
+2. New statistics options either those from python or SQL
+3. GUI
+4. A seperate interraction mode where players can interract with their enviornment!  
+
+
+Known Bugs: 
+  NONE at the moment
