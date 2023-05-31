@@ -3,8 +3,7 @@
 #1. Setup
 #2. Runs CLI to query user for information
 #setup
-import mysql.connector, player
-
+import mysql.connector, player_table_edit, items_table_edit
 
 
 #Server setup and database access
@@ -48,24 +47,35 @@ while( not pass_setup ):
 
 #CLI TIME
 while(True):
-    user_select = int(input("Which group would you like to interract with?\n \n   1. Players \n   2. Items \n   3. Item Instances\n"))
+    user_select = input("Which group would you like to interract with?\n \n   1. Players \n   2. Items \n   3. Item Instances\n")
     match user_select:
-        case 1:
-            user_select = int(input("\nWhat would you like to do with the player table? \n   1. Add a new player \n   2. Remove a player \n   3. Modify a player in the table \n   4. Display the charactaristics of all players in the table\n"))
+        case '1':
+            user_select = input("\nWhat would you like to do with the player table? \n   1. Add a new player \n   2. Remove a player \n   3. Modify a player in the table \n   4. Display the charactaristics of all players in the table\n")
             match user_select:
-                case 1: 
-                    player.add( database, my_cursor )
-                case 2:
-                    player.delete( database, my_cursor )
-                case 3:
-                    player.modify( database,my_cursor )
-                case 4:
-                    player.display( database, my_cursor )
+                case '1': 
+                    player_table_edit.add( database, my_cursor )
+                case '2':
+                    player_table_edit.delete( database, my_cursor )
+                case '3':
+                    player_table_edit.modify( database,my_cursor )
+                case '4':
+                    player_table_edit.display( database, my_cursor )
                 case _:
                     print("Invalid input")
-        case 2: 
-            print("Items Selected:")
-        case 3:
+        case '2': 
+            user_select = input("\nWhat would you like to do with the items table? \n   1. Add a new item \n   2. Remove an item \n   3. Modify an item in the table \n   4. Display the charactaristics of all items in the table\n")
+            match user_select:
+                case '1': 
+                    items_table_edit.add( database, my_cursor )
+                case '2':
+                    items_table_edit.delete( database, my_cursor )
+                case '3':
+                    items_table_edit.modify( database,my_cursor )
+                case '4':
+                    items_table_edit.display( database, my_cursor )
+                case _:
+                    print("Invalid input")
+        case '3':
             print("Item Instanaces Selected:")
         case _:
             print("This is an invalid input try again.")
