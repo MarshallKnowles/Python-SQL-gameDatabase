@@ -7,8 +7,10 @@ Database creates 3 tables players, items, and item_inst.
 Only the players table can be interracted with at the moment.
 
 TODO:
+Add Create, delete, use, display, and move functions to items_inst_table
+Add displayPlayersItems function to items_inst_table
+Add parameter requirements for modifying and adding players and items (e.g. only positive levels)
 Write Unit Tests for overall system
-Complete interractions with items and item_inst
 
 Feature Ideas:
 1. save and exit instead of always comitting

@@ -1,5 +1,3 @@
-#This function takes user input and adds a new row to the table
-#necessary imports and declarations
 
 import mysql.connector
 import user_in
