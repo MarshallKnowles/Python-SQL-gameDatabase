@@ -3,7 +3,7 @@
 #1. Setup
 #2. Runs CLI to query user for information
 #setup
-import mysql.connector, player_table_edit, items_table_edit
+import mysql.connector, player_table_edit, items_table_edit, items_inst_table_edit
 
 
 #Server setup and database access
@@ -76,7 +76,20 @@ while(True):
                 case _:
                     print("Invalid input")
         case '3':
-            print("Item Instanaces Selected:")
+            user_select = input("\nWhat would you like to do with the item instance table? \n   1. Create a new item instance \n   2. Delete an item instance \n   3. Use an item instance \n   4. Display all item instances in the table\n   5. Move an item instance to a target players inventory \n")
+            match user_select:
+                case '1': 
+                    items_inst_table_edit.create( database, my_cursor )
+                case '2':
+                    items_inst_table_edit.delete( database, my_cursor )
+                case '3':
+                    items_inst_table_edit.use( database,my_cursor )
+                case '4':
+                    items_inst_table_edit.display( database, my_cursor )
+                case '5':
+                    items_inst_table_edit.move( database, my_cursor)
+                case _:
+                    print("Invalid input")
         case _:
             print("This is an invalid input try again.")
 
