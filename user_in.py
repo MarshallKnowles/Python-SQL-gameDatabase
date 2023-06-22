@@ -1,10 +1,14 @@
-#returns an integer value based on user input
+#returns a positive integer value based on user input
 def get_int( prompt, error_message):
     int_value = "not an integer"
     while (True):
         try:
             int_value = int(input( prompt ))
-            return int_value
+            if(int_value < 0):
+                print("Please enter a positive integer.")
+                continues
+            else:
+                return int_value
         except:
             print(error_message)
 

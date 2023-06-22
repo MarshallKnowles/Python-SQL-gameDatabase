@@ -21,8 +21,9 @@ def delete( database, my_cursor ):
     #1st level checks for player existence
     while(True):
         #2nd level checks for valid integer input
-        target_player_id = user_in.get_int("\nEnter the ID number of target player: \n","That is not a valid input try inputting an integer" )
-
+        target_player_id = user_in.get_int("\nEnter the ID number of target player: (Enter 0 if you want to leave) \n","That is not a valid input try inputting an integer" )
+        if(target_player_id == 0):
+            return
         #Check if the player exists:
         my_cursor.execute("SELECT * FROM players WHERE player_id = " + str(target_player_id) +";")
         target_player = my_cursor.fetchone()
@@ -45,8 +46,9 @@ def modify( database, my_cursor ):
     #1st level checks for player existence
     while(True):
         #2nd level checks for valid integer input
-        player_id = user_in.get_int("\nEnter the ID number of target player: \n","That is not a valid input try inputting an integer" )
-
+        player_id = user_in.get_int("\nEnter the ID number of target player (enter 0 if you want to leave): \n","That is not a valid input try inputting an integer" )
+        if(player_id == 0):
+            return
         #Check if the player exists:
         my_cursor.execute("SELECT * FROM players WHERE player_id = " + str(player_id) +";")
         target_player = my_cursor.fetchone()
