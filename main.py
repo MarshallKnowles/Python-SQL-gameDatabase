@@ -15,15 +15,7 @@ while( not pass_setup ):
     hostname = input("Server Hostname: ")
     username = input("Username: ")
     password = input("Password: ")
-<<<<<<< Updated upstream
-
-    #Just setting the passwords automatically so I can test what I need to.
-    hostname = "localhost"
-    username = "user"
-    password = "userPass1!"
-=======
     
->>>>>>> Stashed changes
     #sets up the tables in a try-catch
     try:
         #This FAT block generates all the tables and we need it here so everybody else can see database and my_cursor 
